@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style>
+div#manual-nav a:link { color:  #34495e ; }
+div#links a:link { color:  #34495e ; }
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+#manual-nav{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+#links{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+.center{
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+<title> Server Properties </title>
+</head>
+<body bgcolor= "#ecf0f1">
+ <div class="sidenav"> 
+  <a href="../index.html">About</a>
+ <pre> <font color="#ecf0f1" size="5px">  Packages  </font> </pre> 
+  <a href="../clientproperties/index.html">Client Properties</a>
+  <a href="../serverproperties/index.html">Server Properties</a>
+  <a href="../encryptionproperties/index.html">Encryption Properties</a>
+</div>
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = ;
+	document.CALLGRAPH = ;
+	</script>
+
+	<div class="main">
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "."</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="expanded">
+			
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#QueryDeal">func QueryDeal(clients *[]cp.Client, cli cp.ClientListen, name string) cp.ClientListen</a></dd>
+			
+				
+				<dd><a href="#RemoveFromClient">func RemoveFromClient(clients []cp.Client, name string) []cp.Client</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/ServerUtils.go">ServerUtils.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		<div id="links">
+		
+			
+			
+			<h2 id="QueryDeal">func <a href="/src/serverproperties/ServerUtils.go?s=534:620#L10">QueryDeal</a>
+				<a class="permalink" href="#QueryDeal">&#xb6;</a>
+			</h2>
+			<pre>func QueryDeal(clients *[]<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/">cp</a>.<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/#Client">Client</a>, cli <a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/">cp</a>.<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/#ClientListen">ClientListen</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/">cp</a>.<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/#ClientListen">ClientListen</a></pre>
+			<p>
+QueryDeal upadtes client list and PeerIP table when quit query is passed
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RemoveFromClient">func <a href="/src/serverproperties/ServerUtils.go?s=211:278#L1">RemoveFromClient</a>
+				<a class="permalink" href="#RemoveFromClient">&#xb6;</a>
+			</h2>
+			<pre>func RemoveFromClient(clients []<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/">cp</a>.<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/#Client">Client</a>, name <a href="/pkg/builtin/#string">string</a>) []<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/">cp</a>.<a href="/pkg/github.com/IITH-SBJoshi/concurrency-decentralized-network/src/clientproperties/#Client">Client</a></pre>
+			<p>
+RemoveFromClient - removes the client details who quits
+</p>
+</div>
+</div>
+</body>
+</html>
+
+
+			
+			
+
+		
+		
+	
+
+	
+
+
+
+
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style>
+div#manual-nav a:link { color:  #34495e ; }
+div#links a:link { color:  #34495e ; }
+
+#manual-nav{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+#links{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+</style>
+<title> Encryption Properties </title>
+</head>
+
+<body bgcolor= "#ecf0f1">
+<div class="sidenav">
+  <a href="../index.html">About</a>
+ <pre> <font color="#ecf0f1" size="5px">  Packages  </font> </pre> 
+  <a href="../clientproperties/index.html">Client Properties</a>
+  <a href="../serverproperties/index.html">Server Properties</a>
+  <a href="../encryptionproperties/index.html">Encryption Properties</a>
+</div>
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "."</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+<div class="main">
+		<!-- The package's Name is printed as title by the top-level template -->
+
+
+		<div id="pkg-index" class="toggleVisible">
+
+		<div class="expanded">
+			
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#DecryptWithPrivateKey">func DecryptWithPrivateKey(ciphertext []byte, priv *rsa.PrivateKey) []byte</a></dd>
+			
+				
+				<dd><a href="#EncryptWithPublicKey">func EncryptWithPublicKey(msg []byte, pub *rsa.PublicKey) []byte</a></dd>
+			
+				
+				<dd><a href="#GenerateKeyPair">func GenerateKeyPair() (*rsa.PrivateKey, *rsa.PublicKey)</a></dd>
+			
+				
+				<dd><a href="#PerformHandshake">func PerformHandshake(conn net.Conn, pub *rsa.PublicKey) *rsa.PublicKey</a></dd>
+			
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/encryptionproperties.go">encryptionproperties.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		
+		<div id="links">
+			
+			
+			<h2 id="DecryptWithPrivateKey">func <a href="/src/encryptionproperties/encryptionproperties.go?s=952:1026#L30">DecryptWithPrivateKey</a>
+				<a class="permalink" href="#DecryptWithPrivateKey">&#xb6;</a>
+			</h2>
+			<pre>func DecryptWithPrivateKey(ciphertext []<a href="/pkg/builtin/#byte">byte</a>, priv *<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PrivateKey">PrivateKey</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>
+DecryptWithPrivateKey decrypts data with private key
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="EncryptWithPublicKey">func <a href="/src/encryptionproperties/encryptionproperties.go?s=716:780#L22">EncryptWithPublicKey</a>
+				<a class="permalink" href="#EncryptWithPublicKey">&#xb6;</a>
+			</h2>
+			<pre>func EncryptWithPublicKey(msg []<a href="/pkg/builtin/#byte">byte</a>, pub *<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PublicKey">PublicKey</a>) []<a href="/pkg/builtin/#byte">byte</a></pre>
+			<p>
+EncryptWithPublicKey encrypts data with public key
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GenerateKeyPair">func <a href="/src/encryptionproperties/encryptionproperties.go?s=158:214#L2">GenerateKeyPair</a>
+				<a class="permalink" href="#GenerateKeyPair">&#xb6;</a>
+			</h2>
+			<pre>func GenerateKeyPair() (*<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PrivateKey">PrivateKey</a>, *<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PublicKey">PublicKey</a>)</pre>
+			<p>
+GenerateKeyPair - generates a new key pair
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="PerformHandshake">func <a href="/src/encryptionproperties/encryptionproperties.go?s=367:438#L9">PerformHandshake</a>
+				<a class="permalink" href="#PerformHandshake">&#xb6;</a>
+			</h2>
+			<pre>func PerformHandshake(conn <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>, pub *<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PublicKey">PublicKey</a>) *<a href="/pkg/crypto/rsa/">rsa</a>.<a href="/pkg/crypto/rsa/#PublicKey">PublicKey</a></pre>
+			<p>
+PerformHandshake performs handshake with encryption done
+</p>
+</div>
+</div>
+</body>
+</html>			
+
+		
+		
+	
+
+	
+
+
+
+
+

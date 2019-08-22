@@ -1,0 +1,16 @@
+package: github.com/IITH-SBJoshi/concurrency-decentralized-network
+import: 
+- package: github.com/andlabs/ui
+
+owners:
+  - name: Jatin Chauhan
+    email: cs17btech11019@iith.ac.in
+  - name : Surgan Jandial
+    email: cs17btech11038@iith.ac.in
+  - name : Happy Mahto
+    email: cs17btech11020@iith.ac.in
+  - name: Deeptanshu Sankhwar
+    email: cs17btech11013@iith.ac.in
+
+excludeDirs:
+  - docs

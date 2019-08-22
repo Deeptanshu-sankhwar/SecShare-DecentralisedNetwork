@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+div#manual-nav a:link { color:  #34495e ; }
+div#links a:link { color:  #34495e ; }
+
+#manual-nav{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+#links{
+	display: block;
+	padding:1em;
+	font-style: italic;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+</style>
+<title> Client Properties </title>
+</head>
+<body bgcolor= "#ecf0f1">
+
+
+<div class="sidenav">
+  <a href="../index.html">About</a>
+ <pre> <font color="#ecf0f1" size="5px">  Packages  </font> </pre> 
+  <a href="../clientproperties/index.html">Client Properties</a>
+  <a href="../serverproperties/index.html">Server Properties</a>
+  <a href="../encryptionproperties/index.html">Encryption Properties</a>
+</div>
+<div class="main">
+
+	<div id="short-nav">
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+
+		<div id="pkg-index" class="toggleVisible">
+
+		<div class="expanded">
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#AsyncDownloader">func AsyncDownloader(wg *sync.WaitGroup, client *http.Client, start int64, end int, i int, size int, url string, f *os.File) error</a></dd>
+			
+				
+				<dd><a href="#CheckFileExistence">func CheckFileExistence(request FileRequest, directoryFiles *ClientFiles) bool</a></dd>
+			
+				
+				<dd><a href="#DisplayNumRecentMessages">func DisplayNumRecentMessages(mymessages *MyReceivedMessages, recentCount int) string</a></dd>
+			
+				
+				<dd><a href="#DisplayRecentUnseenMessages">func DisplayRecentUnseenMessages(mymessages *MyReceivedMessages) string</a></dd>
+			
+				
+				<dd><a href="#Download">func Download(args string)</a></dd>
+			
+				
+				<dd><a href="#DummyAsync">func DummyAsync(wg *sync.WaitGroup, client *http.Client, start int64, end int, i int, size int, url string, f *os.File) error</a></dd>
+			
+				
+				<dd><a href="#FileSenderCredentials">func FileSenderCredentials(broadcast bool) (string, string)</a></dd>
+			
+				
+				<dd><a href="#GetFileParts">func GetFileParts(completefilename string, partSize uint64, filesize int64, i uint64, fileContents []byte, allFileParts []FilePartInfo, wgSplit *sync.WaitGroup, totalParts int)</a></dd>
+			
+				
+				<dd><a href="#GetRequestedFile">func GetRequestedFile(activeClient *ClientListen, myname string, fileSenderName string, fileName string) string</a></dd>
+			
+				
+				<dd><a href="#GetSplitFile">func GetSplitFile(filename string, numberOfActiveClient int) []FilePartInfo</a></dd>
+			
+				
+				<dd><a href="#ListenOnSelfPort">func ListenOnSelfPort(ln net.Listener, myname string, activeClient *ClientListen, myfiles map[string]MyReceivedFiles, mymessages *MyReceivedMessages, directoryFiles *ClientFiles)</a></dd>
+			
+				
+				<dd><a href="#MessageReceiverCredentials">func MessageReceiverCredentials() (string, string)</a></dd>
+			
+				
+				<dd><a href="#RequestMessage">func RequestMessage(activeClient *ClientListen, name string, messageReceiverName string, message string) string</a></dd>
+			
+				
+				<dd><a href="#RequestSomeFile">func RequestSomeFile(activeClient *ClientListen, myname string, fileName string) string</a></dd>
+			
+				
+				<dd><a href="#SendFileParts">func SendFileParts(newfilerequest FileRequest, allfileparts []FilePartInfo, activeClient *ClientListen, myname string) int</a></dd>
+			
+				
+				<dd><a href="#SendFileRequestToPeer">func SendFileRequestToPeer(connection net.Conn, fileRequest FileRequest, requestType string)</a></dd>
+			
+				
+				<dd><a href="#SendPart">func SendPart(names string, activeClient *ClientListen, newfilerequest FileRequest, countSent int, allfileparts []FilePartInfo, wgSplit *sync.WaitGroup)</a></dd>
+			
+				
+				<dd><a href="#SendingToServer">func SendingToServer(name []byte, query []byte, conn net.Conn, queryType string, listenPort []byte)</a></dd>
+			
+			
+				
+				<dd><a href="#BaseRequest">type BaseRequest</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Client">type Client</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientFiles">type ClientFiles</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientJob">type ClientJob</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientListen">type ClientListen</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ClientQuery">type ClientQuery</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FilePartContents">type FilePartContents</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FilePartInfo">type FilePartInfo</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FileRequest">type FileRequest</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MessageRequest">type MessageRequest</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MyPeers">type MyPeers</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MyReceivedFiles">type MyReceivedFiles</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MyReceivedMessages">type MyReceivedMessages</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WriteCounter">type WriteCounter</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#WriteCounter.Write">func (wc *WriteCounter) Write(p []byte) (int, error)</a></dd>
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/clientProperties.go">clientProperties.go</a>
+			
+				<a href="/src/concatFiles.go">concatFiles.go</a>
+			
+				<a href="/src/download.go">download.go</a>
+			
+				<a href="/src/fileSplit.go">fileSplit.go</a>
+			
+				<a href="/src/listenOnSelfPort.go">listenOnSelfPort.go</a>
+			
+				<a href="/src/requestFile.go">requestFile.go</a>
+			
+				<a href="/src/sendMessage.go">sendMessage.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		
+		
+	<div id="links">
+			
+	<h2 id="AsyncDownloader">func <a href="/src/clientproperties/download.go?s=864:994#L35">AsyncDownloader</a>
+				<a class="permalink" href="#AsyncDownloader">&#xb6;</a>
+			</h2>
+			<pre>func AsyncDownloader(wg *<a href="/pkg/sync/">sync</a>.<a href="/pkg/sync/#WaitGroup">WaitGroup</a>, client *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Client">Client</a>, start <a href="/pkg/builtin/#int64">int64</a>, end <a href="/pkg/builtin/#int">int</a>, i <a href="/pkg/builtin/#int">int</a>, size <a href="/pkg/builtin/#int">int</a>, url <a href="/pkg/builtin/#string">string</a>, f *<a href="/pkg/os/">os</a>.<a href="/pkg/os/#File">File</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>
+AsyncDownloader downloader function
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="CheckFileExistence">func <a href="/src/clientproperties/listenOnSelfPort.go?s=5023:5101#L143">CheckFileExistence</a>
+				<a class="permalink" href="#CheckFileExistence">&#xb6;</a>
+			</h2>
+			<pre>func CheckFileExistence(request <a href="#FileRequest">FileRequest</a>, directoryFiles *<a href="#ClientFiles">ClientFiles</a>) <a href="/pkg/builtin/#bool">bool</a></pre>
+			<p>
+CheckFileExistence checking existence of file to send it to some peer
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="DisplayNumRecentMessages">func <a href="/src/clientproperties/clientProperties.go?s=4189:4274#L128">DisplayNumRecentMessages</a>
+				<a class="permalink" href="#DisplayNumRecentMessages">&#xb6;</a>
+			</h2>
+			<pre>func DisplayNumRecentMessages(mymessages *<a href="#MyReceivedMessages">MyReceivedMessages</a>, recentCount <a href="/pkg/builtin/#int">int</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+DisplayNumRecentMessages To display Num recent messages
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="DisplayRecentUnseenMessages">func <a href="/src/clientproperties/clientProperties.go?s=3420:3491#L107">DisplayRecentUnseenMessages</a>
+				<a class="permalink" href="#DisplayRecentUnseenMessages">&#xb6;</a>
+			</h2>
+			<pre>func DisplayRecentUnseenMessages(mymessages *<a href="#MyReceivedMessages">MyReceivedMessages</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+DisplayRecentUnseenMessages  To display the most recent messages which haven&#39;t been seen yet
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="Download">func <a href="/src/clientproperties/download.go?s=1889:1915#L85">Download</a>
+				<a class="permalink" href="#Download">&#xb6;</a>
+			</h2>
+			<pre>func Download(args <a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>
+Download ..
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="DummyAsync">func <a href="/src/clientproperties/download.go?s=585:710#L28">DummyAsync</a>
+				<a class="permalink" href="#DummyAsync">&#xb6;</a>
+			</h2>
+			<pre>func DummyAsync(wg *<a href="/pkg/sync/">sync</a>.<a href="/pkg/sync/#WaitGroup">WaitGroup</a>, client *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Client">Client</a>, start <a href="/pkg/builtin/#int64">int64</a>, end <a href="/pkg/builtin/#int">int</a>, i <a href="/pkg/builtin/#int">int</a>, size <a href="/pkg/builtin/#int">int</a>, url <a href="/pkg/builtin/#string">string</a>, f *<a href="/pkg/os/">os</a>.<a href="/pkg/os/#File">File</a>) <a href="/pkg/builtin/#error">error</a></pre>
+			<p>
+DummyAsync simulates Async
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="FileSenderCredentials">func <a href="/src/clientproperties/requestFile.go?s=2633:2692#L75">FileSenderCredentials</a>
+				<a class="permalink" href="#FileSenderCredentials">&#xb6;</a>
+			</h2>
+			<pre>func FileSenderCredentials(broadcast <a href="/pkg/builtin/#bool">bool</a>) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>
+FileSenderCredentials getting the details for sending file request
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetFileParts">func <a href="/src/clientproperties/fileSplit.go?s=176:353#L3">GetFileParts</a>
+				<a class="permalink" href="#GetFileParts">&#xb6;</a>
+			</h2>
+			<pre>func GetFileParts(completefilename <a href="/pkg/builtin/#string">string</a>, partSize <a href="/pkg/builtin/#uint64">uint64</a>, filesize <a href="/pkg/builtin/#int64">int64</a>, i <a href="/pkg/builtin/#uint64">uint64</a>, fileContents []<a href="/pkg/builtin/#byte">byte</a>,
+    allFileParts []<a href="#FilePartInfo">FilePartInfo</a>, wgSplit *<a href="/pkg/sync/">sync</a>.<a href="/pkg/sync/#WaitGroup">WaitGroup</a>, totalParts <a href="/pkg/builtin/#int">int</a>)</pre>
+			<p>
+GetFileParts - goroutine to get all the parts of file to be sent over the network
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetRequestedFile">func <a href="/src/clientproperties/requestFile.go?s=1728:1839#L47">GetRequestedFile</a>
+				<a class="permalink" href="#GetRequestedFile">&#xb6;</a>
+			</h2>
+			<pre>func GetRequestedFile(activeClient *<a href="#ClientListen">ClientListen</a>, myname <a href="/pkg/builtin/#string">string</a>, fileSenderName <a href="/pkg/builtin/#string">string</a>, fileName <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+GetRequestedFile To get file from a peer
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="GetSplitFile">func <a href="/src/clientproperties/fileSplit.go?s=1080:1155#L21">GetSplitFile</a>
+				<a class="permalink" href="#GetSplitFile">&#xb6;</a>
+			</h2>
+			<pre>func GetSplitFile(filename <a href="/pkg/builtin/#string">string</a>, numberOfActiveClient <a href="/pkg/builtin/#int">int</a>) []<a href="#FilePartInfo">FilePartInfo</a></pre>
+			<p>
+GetSplitFile fuction to return the splitted parts
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="ListenOnSelfPort">func <a href="/src/clientproperties/listenOnSelfPort.go?s=6655:6834#L191">ListenOnSelfPort</a>
+				<a class="permalink" href="#ListenOnSelfPort">&#xb6;</a>
+			</h2>
+			<pre>func ListenOnSelfPort(ln <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Listener">Listener</a>, myname <a href="/pkg/builtin/#string">string</a>, activeClient *<a href="#ClientListen">ClientListen</a>, myfiles map[<a href="/pkg/builtin/#string">string</a>]<a href="#MyReceivedFiles">MyReceivedFiles</a>,
+    mymessages *<a href="#MyReceivedMessages">MyReceivedMessages</a>, directoryFiles *<a href="#ClientFiles">ClientFiles</a>)</pre>
+			<p>
+ListenOnSelfPort listens for clients on network
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="MessageReceiverCredentials">func <a href="/src/clientproperties/sendMessage.go?s=1333:1383#L40">MessageReceiverCredentials</a>
+				<a class="permalink" href="#MessageReceiverCredentials">&#xb6;</a>
+			</h2>
+			<pre>func MessageReceiverCredentials() (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>
+MessageReceiverCredentials for receiving message credientials
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RequestMessage">func <a href="/src/clientproperties/sendMessage.go?s=465:577#L10">RequestMessage</a>
+				<a class="permalink" href="#RequestMessage">&#xb6;</a>
+			</h2>
+			<pre>func RequestMessage(activeClient *<a href="#ClientListen">ClientListen</a>, name <a href="/pkg/builtin/#string">string</a>, messageReceiverName <a href="/pkg/builtin/#string">string</a>,
+    message <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+RequestMessage takes message from client and dials to receiver
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="RequestSomeFile">func <a href="/src/clientproperties/requestFile.go?s=686:773#L12">RequestSomeFile</a>
+				<a class="permalink" href="#RequestSomeFile">&#xb6;</a>
+			</h2>
+			<pre>func RequestSomeFile(activeClient *<a href="#ClientListen">ClientListen</a>, myname <a href="/pkg/builtin/#string">string</a>, fileName <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+RequestSomeFile To broadcast the file request to everyone on network
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SendFileParts">func <a href="/src/clientproperties/listenOnSelfPort.go?s=1312:1435#L34">SendFileParts</a>
+				<a class="permalink" href="#SendFileParts">&#xb6;</a>
+			</h2>
+			<pre>func SendFileParts(newfilerequest <a href="#FileRequest">FileRequest</a>, allfileparts []<a href="#FilePartInfo">FilePartInfo</a>,
+    activeClient *<a href="#ClientListen">ClientListen</a>, myname <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/builtin/#int">int</a></pre>
+			<p>
+SendFileParts send various file parts to peers
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SendFileRequestToPeer">func <a href="/src/clientproperties/requestFile.go?s=135:227#L1">SendFileRequestToPeer</a>
+				<a class="permalink" href="#SendFileRequestToPeer">&#xb6;</a>
+			</h2>
+			<pre>func SendFileRequestToPeer(connection <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>, fileRequest <a href="#FileRequest">FileRequest</a>, requestType <a href="/pkg/builtin/#string">string</a>)</pre>
+			<p>
+SendFileRequestToPeer To send the request to corresponding peer
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SendPart">func <a href="/src/clientproperties/listenOnSelfPort.go?s=329:482#L7">SendPart</a>
+				<a class="permalink" href="#SendPart">&#xb6;</a>
+			</h2>
+			<pre>func SendPart(names <a href="/pkg/builtin/#string">string</a>, activeClient *<a href="#ClientListen">ClientListen</a>, newfilerequest <a href="#FileRequest">FileRequest</a>,
+    countSent <a href="/pkg/builtin/#int">int</a>, allfileparts []<a href="#FilePartInfo">FilePartInfo</a>, wgSplit *<a href="/pkg/sync/">sync</a>.<a href="/pkg/sync/#WaitGroup">WaitGroup</a>)</pre>
+			<p>
+SendPart - To send each file part concurrently
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="SendingToServer">func <a href="/src/clientproperties/clientProperties.go?s=3025:3125#L95">SendingToServer</a>
+				<a class="permalink" href="#SendingToServer">&#xb6;</a>
+			</h2>
+			<pre>func SendingToServer(name []<a href="/pkg/builtin/#byte">byte</a>, query []<a href="/pkg/builtin/#byte">byte</a>, conn <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>,
+    queryType <a href="/pkg/builtin/#string">string</a>, listenPort []<a href="/pkg/builtin/#byte">byte</a>)</pre>
+			<p>
+SendingToServer - to send queries to server
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="BaseRequest">type <a href="/src/clientproperties/clientProperties.go?s=2118:2439#L66">BaseRequest</a>
+				<a class="permalink" href="#BaseRequest">&#xb6;</a>
+			</h2>
+			<pre>type BaseRequest struct {
+    RequestType    <a href="/pkg/builtin/#string">string</a>       <span class="comment">// type of request</span>
+    <a href="#FileRequest">FileRequest</a>                 <span class="comment">// Information about File requseter if its a file request</span>
+    FilePartInfo   <a href="#FilePartInfo">FilePartInfo</a> <span class="comment">// Information about file parts if its a file request</span>
+    <a href="#MessageRequest">MessageRequest</a>              <span class="comment">// Details of message is its a message request</span>
+}</pre>
+			<p>
+BaseRequest : A base request which is used as a generic request for all types of P2P queries
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Client">type <a href="/src/clientproperties/clientProperties.go?s=132:231#L1">Client</a>
+				<a class="permalink" href="#Client">&#xb6;</a>
+			</h2>
+			<pre>type Client struct {
+    Address          <a href="/pkg/builtin/#string">string</a>
+    Name             <a href="/pkg/builtin/#string">string</a>
+    ConnectionServer <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>
+}</pre>
+			<p>
+Client - Struct to store details of specific client
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ClientFiles">type <a href="/src/clientproperties/clientProperties.go?s=2928:2976#L90">ClientFiles</a>
+				<a class="permalink" href="#ClientFiles">&#xb6;</a>
+			</h2>
+			<pre>type ClientFiles struct {
+    FilesInDir []<a href="/pkg/builtin/#string">string</a>
+}</pre>
+			<p>
+ClientFiles stores the files in the &#34;files&#34; directory of client
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ClientJob">type <a href="/src/clientproperties/clientProperties.go?s=863:990#L24">ClientJob</a>
+				<a class="permalink" href="#ClientJob">&#xb6;</a>
+			</h2>
+			<pre>type ClientJob struct {
+    Name             <a href="/pkg/builtin/#string">string</a>
+    Query            <a href="/pkg/builtin/#string">string</a>
+    Conn             <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>
+    ClientListenPort <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			<p>
+ClientJob :  Stores the names, jobs, query and connection
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ClientListen">type <a href="/src/clientproperties/clientProperties.go?s=386:642#L10">ClientListen</a>
+				<a class="permalink" href="#ClientListen">&#xb6;</a>
+			</h2>
+			<pre>type ClientListen struct {
+    List           []<a href="/pkg/builtin/#string">string</a>          <span class="comment">// names of all clients</span>
+    PeerIP         map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a> <span class="comment">// IP to name mapping of all clients</span>
+    PeerListenPort map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a> <span class="comment">//Port at which all those clients are listening for P2P requests</span>
+}</pre>
+			<p>
+ClientListen  Store - all client names,
+</p>
+<pre>IP to name mapping of all clients
+Port at which all those clients are listening for P2P requests
+</pre>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ClientQuery">type <a href="/src/clientproperties/clientProperties.go?s=698:800#L17">ClientQuery</a>
+				<a class="permalink" href="#ClientQuery">&#xb6;</a>
+			</h2>
+			<pre>type ClientQuery struct {
+    Name             []<a href="/pkg/builtin/#byte">byte</a>
+    Query            []<a href="/pkg/builtin/#byte">byte</a>
+    ClientListenPort []<a href="/pkg/builtin/#byte">byte</a>
+}</pre>
+			<p>
+ClientQuery :  To store name and query of a client
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FilePartContents">type <a href="/src/clientproperties/clientProperties.go?s=1759:1808#L52">FilePartContents</a>
+				<a class="permalink" href="#FilePartContents">&#xb6;</a>
+			</h2>
+			<pre>type FilePartContents struct {
+    Contents []<a href="/pkg/builtin/#byte">byte</a>
+}</pre>
+			<p>
+FilePartContents Contents of a part of file
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FilePartInfo">type <a href="/src/clientproperties/clientProperties.go?s=1874:2021#L57">FilePartInfo</a>
+				<a class="permalink" href="#FilePartInfo">&#xb6;</a>
+			</h2>
+			<pre>type FilePartInfo struct {
+    FileName         <a href="/pkg/builtin/#string">string</a>
+    TotalParts       <a href="/pkg/builtin/#int">int</a>
+    PartName         <a href="/pkg/builtin/#string">string</a>
+    PartNumber       <a href="/pkg/builtin/#int">int</a>
+    FilePartContents []<a href="/pkg/builtin/#byte">byte</a>
+}</pre>
+			<p>
+FilePartInfo Complete Information regarding the file to share
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FileRequest">type <a href="/src/clientproperties/clientProperties.go?s=2507:2622#L74">FileRequest</a>
+				<a class="permalink" href="#FileRequest">&#xb6;</a>
+			</h2>
+			<pre>type FileRequest struct {
+    Query         <a href="/pkg/builtin/#string">string</a>
+    MyAddress     <a href="/pkg/builtin/#string">string</a>
+    MyName        <a href="/pkg/builtin/#string">string</a>
+    RequestedFile <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			<p>
+FileRequest stores the queries and information about requester
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MessageRequest">type <a href="/src/clientproperties/clientProperties.go?s=2741:2859#L82">MessageRequest</a>
+				<a class="permalink" href="#MessageRequest">&#xb6;</a>
+			</h2>
+			<pre>type MessageRequest struct {
+    SenderQuery   <a href="/pkg/builtin/#string">string</a>
+    SenderAddress <a href="/pkg/builtin/#string">string</a>
+    SenderName    <a href="/pkg/builtin/#string">string</a>
+    Message       <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			<p>
+MessageRequest Stores the information about requester, who is sending the message (for the receiver to reply back)
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MyPeers">type <a href="/src/clientproperties/clientProperties.go?s=1042:1101#L32">MyPeers</a>
+				<a class="permalink" href="#MyPeers">&#xb6;</a>
+			</h2>
+			<pre>type MyPeers struct {
+    Conn     <a href="/pkg/net/">net</a>.<a href="/pkg/net/#Conn">Conn</a>
+    PeerName <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			<p>
+MyPeers : List of peers to which a clinet dials
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MyReceivedFiles">type <a href="/src/clientproperties/clientProperties.go?s=1177:1406#L38">MyReceivedFiles</a>
+				<a class="permalink" href="#MyReceivedFiles">&#xb6;</a>
+			</h2>
+			<pre>type MyReceivedFiles struct {
+    PartsReceived <a href="/pkg/builtin/#int">int</a>
+    MyFileName    <a href="/pkg/builtin/#string">string</a>             <span class="comment">// name of file</span>
+    MyFile        []<a href="#FilePartContents">FilePartContents</a> <span class="comment">// Contents of the file</span>
+    FilePartInfo  <a href="#FilePartInfo">FilePartInfo</a>       <span class="comment">// Information of various file parts</span>
+}</pre>
+			<p>
+MyReceivedFiles :  To store the information of files received by client
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MyReceivedMessages">type <a href="/src/clientproperties/clientProperties.go?s=1479:1711#L46">MyReceivedMessages</a>
+				<a class="permalink" href="#MyReceivedMessages">&#xb6;</a>
+			</h2>
+			<pre>type MyReceivedMessages struct {
+    Counter    <a href="/pkg/builtin/#int">int</a>              <span class="comment">// The counter from which client has to start reading the messages</span>
+    MyMessages []<a href="#MessageRequest">MessageRequest</a> <span class="comment">// slice of structs of type MessageRequest to store all message requests</span>
+}</pre>
+			<p>
+MyReceivedMessages To store the information of the messages receievd
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WriteCounter">type <a href="/src/clientproperties/download.go?s=188:230#L8">WriteCounter</a>
+				<a class="permalink" href="#WriteCounter">&#xb6;</a>
+			</h2>
+			<pre>type WriteCounter struct {
+    Total <a href="/pkg/builtin/#uint64">uint64</a>
+}</pre>
+			<p>
+WriteCounter - Count of writer
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="WriteCounter.Write">func (*WriteCounter) <a href="/src/clientproperties/download.go?s=258:310#L14">Write</a>
+					<a class="permalink" href="#WriteCounter.Write">&#xb6;</a>
+				</h3>
+				<pre>func (wc *<a href="#WriteCounter">WriteCounter</a>) Write(p []<a href="/pkg/builtin/#byte">byte</a>) (<a href="/pkg/builtin/#int">int</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+	</div>
+	</div>
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = ;
+	document.CALLGRAPH = ;
+	</script	>	
+				
+</body>
+</html>
+
+	
+
+
+
+
+
